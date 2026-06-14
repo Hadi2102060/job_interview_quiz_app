@@ -1,0 +1,22 @@
+# Flutter build files (সবচেয়ে গুরুত্বপূর্ণ)
+build/
+.dart_tool/
+.pub/
+.pub-cache/
+
+# IDE files (আপনার IDE এর উপর নির্ভর করে)
+.idea/
+.vscode/
+*.iml
+
+# Platform specific (অপশনাল)
+.DS_Store
+Thumbs.db
+
+# Environment & Secrets (যদি থাকে)
+.env
+*.key
+secrets.json
+
+# Log files
+*.log
