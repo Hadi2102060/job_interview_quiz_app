@@ -65,6 +65,15 @@ flutter pub get
 flutter run
 ```
 
+
+2. Add those packages to the pubspec.yaml file :
+
+```bash
+ -  google_fonts: ^8.1.0
+ - font_awesome_flutter: ^11.0.0
+ - lottie: ^3.3.3
+```
+
 Project structure (important files)
 - `lib/main.dart` — App entry point
 - `lib/screens/homescreen.dart` — Home and navigation
