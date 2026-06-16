@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class SuccessScreen extends StatefulWidget {
-  final int score;
-  final int totalQuestions;
-  final VoidCallback onRestart;
-  final VoidCallback onExit;
-
-  const SuccessScreen({
-    super.key,
-    required this.score,
-    required this.totalQuestions,
-    required this.onRestart,
-    required this.onExit,
-  });
+  const SuccessScreen({super.key});
 
   @override
   State<SuccessScreen> createState() => _SuccessScreenState();
@@ -25,6 +15,11 @@ class _SuccessScreenState extends State<SuccessScreen>
   late AnimationController _confettiController;
   late Animation<double> _scaleAnimation;
   late Animation<double> _fadeAnimation;
+
+  String score = Get.arguments['score'].toString();
+  String total = Get.arguments['total'].toString();
+  VoidCallback onRestart = Get.arguments['onRestart'];
+  VoidCallback onExit = Get.arguments['onExit'];
 
   @override
   void initState() {
@@ -53,7 +48,7 @@ class _SuccessScreenState extends State<SuccessScreen>
   }
 
   String _getPerformanceMessage() {
-    double percentage = (widget.score / widget.totalQuestions) * 100;
+    double percentage = (double.parse(score) / double.parse(total)) * 100;
     if (percentage == 100) {
       return "Perfect! You're a genius!";
     } else if (percentage >= 80) {
@@ -68,7 +63,7 @@ class _SuccessScreenState extends State<SuccessScreen>
   }
 
   Color _getScoreColor() {
-    double percentage = (widget.score / widget.totalQuestions) * 100;
+    double percentage = (double.parse(score) / double.parse(total)) * 100;
     if (percentage >= 80) return Colors.green.shade700;
     if (percentage >= 60) return Colors.lightGreen.shade700;
     if (percentage >= 40) return Colors.orange.shade700;
@@ -198,7 +193,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                           textBaseline: TextBaseline.alphabetic,
                           children: [
                             Text(
-                              "${widget.score}",
+                              "${int.tryParse(score)}",
                               style: TextStyle(
                                 fontSize: 72,
                                 fontWeight: FontWeight.bold,
@@ -213,7 +208,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                               ),
                             ),
                             Text(
-                              " / ${widget.totalQuestions}",
+                              " / ${int.tryParse(total)}",
                               style: TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.w600,
@@ -250,7 +245,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: LinearProgressIndicator(
-                            value: widget.score / widget.totalQuestions,
+                            value: double.parse(score) / double.parse(total),
                             backgroundColor: Colors.white.withOpacity(0.2),
                             valueColor: AlwaysStoppedAnimation<Color>(
                               _getScoreColor(),
@@ -260,7 +255,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          "${((widget.score / widget.totalQuestions) * 100).toStringAsFixed(0)}%",
+                          "${((double.parse(score) / double.parse(total)) * 100).toStringAsFixed(0)}%",
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.white.withOpacity(0.7),
@@ -278,7 +273,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                       children: [
                         Expanded(
                           child: OutlinedButton.icon(
-                            onPressed: widget.onRestart,
+                            onPressed: onRestart,
                             icon: const Icon(Icons.refresh, size: 24),
                             label: const Text(
                               "Restart",
@@ -301,7 +296,7 @@ class _SuccessScreenState extends State<SuccessScreen>
 
                         Expanded(
                           child: ElevatedButton.icon(
-                            onPressed: widget.onExit,
+                            onPressed: onExit,
                             icon: const Icon(Icons.exit_to_app, size: 24),
                             label: const Text(
                               "Exit",

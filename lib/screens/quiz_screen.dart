@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_interview_quiz_app/models/question_model.dart';
-import 'package:job_interview_quiz_app/screens/homescreen.dart';
-import 'package:job_interview_quiz_app/screens/success_Screen.dart';
+import 'package:job_interview_quiz_app/routes/appRoutes.dart';
 import '../data/question_repository.dart';
 import '../widgets/answer_card.dart';
 
@@ -168,25 +168,16 @@ class _QuizScreenState extends State<QuizScreen>
       _animationController.reset();
       _animationController.forward();
     } else {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SuccessScreen(
-            score: _score,
-            totalQuestions: _questions.length,
-            onRestart: () {
-              Navigator.pop(context);
-
-              _resetQuiz();
-            },
-            onExit: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (_) => HomeScreen()),
-              );
-            },
-          ),
-        ),
+      Get.toNamed(
+        Approutes.resultScreen,
+        arguments: {
+          'score': _score,
+          'total': _questions.length,
+          'onRestart': _resetQuiz,
+          'onExit': () {
+            Get.offAllNamed(Approutes.homeRoute);
+          },
+        },
       );
     }
   }

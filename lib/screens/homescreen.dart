@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'quiz_screen.dart';
 
@@ -228,22 +229,11 @@ class _HomeScreenState extends State<HomeScreen>
 
   void _startQuiz(Map<String, dynamic> topic) {
     HapticFeedback.mediumImpact();
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => QuizScreen(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          const begin = Offset(1.0, 0.0);
-          const end = Offset.zero;
-          const curve = Curves.easeInOut;
-          var tween = Tween(
-            begin: begin,
-            end: end,
-          ).chain(CurveTween(curve: curve));
-          var offsetAnimation = animation.drive(tween);
-          return SlideTransition(position: offsetAnimation, child: child);
-        },
-      ),
+    Get.to(
+      () => QuizScreen(),
+      transition: Transition.rightToLeft,
+      duration: Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
     );
   }
 

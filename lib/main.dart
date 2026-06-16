@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:job_interview_quiz_app/screens/homescreen.dart';
+import 'package:get/get.dart';
+import 'package:job_interview_quiz_app/routes/appRoutes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Job Interview Quiz App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomeScreen(),
+      initialRoute: Approutes.homeRoute,
+      getPages: Approutes.routes,
     );
   }
 }

@@ -8,6 +8,7 @@ class AnswerCard extends StatelessWidget {
   final VoidCallback? onTap;
 
   const AnswerCard({
+    super.key,
     required this.text,
     this.isSelected = false,
     this.isCorrect = false,
