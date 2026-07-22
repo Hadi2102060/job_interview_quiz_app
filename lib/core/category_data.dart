@@ -1,0 +1,210 @@
+import 'package:flutter/material.dart';
+
+/// Static catalog of quiz categories used by the dashboard, stats
+/// and leaderboard screens. Mirrors the existing topic list but
+/// adds richer metadata so charts and progress widgets have
+/// something to read from.
+class CategoryMeta {
+  final String id;
+  final String title;
+  final String description;
+  final String category;
+  final IconData icon;
+  final Color color;
+  final int questionCount;
+  final String difficulty;
+  final double popularity;
+
+  const CategoryMeta({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.category,
+    required this.icon,
+    required this.color,
+    required this.questionCount,
+    required this.difficulty,
+    required this.popularity,
+  });
+}
+
+const List<CategoryMeta> kAllCategories = [
+  CategoryMeta(
+    id: 'flutter_basics',
+    title: 'Flutter Basics',
+    description: 'Widgets, State Management, Lifecycle',
+    category: 'Flutter',
+    icon: Icons.flutter_dash,
+    color: Colors.blue,
+    questionCount: 25,
+    difficulty: 'Beginner',
+    popularity: 4.8,
+  ),
+  CategoryMeta(
+    id: 'flutter_advanced',
+    title: 'Flutter Advanced',
+    description: 'Custom Paint, Animations, Performance',
+    category: 'Flutter',
+    icon: Icons.animation,
+    color: Colors.indigo,
+    questionCount: 30,
+    difficulty: 'Advanced',
+    popularity: 4.9,
+  ),
+  CategoryMeta(
+    id: 'state_mgmt',
+    title: 'State Management',
+    description: 'Provider, Bloc, GetX, Riverpod',
+    category: 'Flutter',
+    icon: Icons.account_tree,
+    color: Colors.teal,
+    questionCount: 20,
+    difficulty: 'Intermediate',
+    popularity: 4.7,
+  ),
+  CategoryMeta(
+    id: 'dart_prog',
+    title: 'Dart Programming',
+    description: 'OOP, Async, Null Safety, Collections',
+    category: 'Dart',
+    icon: Icons.code,
+    color: Colors.cyan,
+    questionCount: 35,
+    difficulty: 'Beginner',
+    popularity: 4.6,
+  ),
+  CategoryMeta(
+    id: 'android_dev',
+    title: 'Android Development',
+    description: 'Kotlin, Jetpack, Compose, Architecture',
+    category: 'Android',
+    icon: Icons.android,
+    color: Colors.green,
+    questionCount: 40,
+    difficulty: 'Intermediate',
+    popularity: 4.7,
+  ),
+  CategoryMeta(
+    id: 'ios_dev',
+    title: 'iOS Development',
+    description: 'Swift, UIKit, SwiftUI, Core Data',
+    category: 'iOS',
+    icon: Icons.apple,
+    color: Colors.grey,
+    questionCount: 35,
+    difficulty: 'Intermediate',
+    popularity: 4.8,
+  ),
+  CategoryMeta(
+    id: 'js_core',
+    title: 'JavaScript Core',
+    description: 'ES6+, Closures, Promises, Events',
+    category: 'JavaScript',
+    icon: Icons.javascript,
+    color: Color(0xFFEF6C00),
+    questionCount: 45,
+    difficulty: 'Beginner',
+    popularity: 4.9,
+  ),
+  CategoryMeta(
+    id: 'react_node',
+    title: 'React & Node.js',
+    description: 'Hooks, Context, Express, MongoDB',
+    category: 'JavaScript',
+    icon: Icons.code,
+    color: Colors.lightBlue,
+    questionCount: 30,
+    difficulty: 'Advanced',
+    popularity: 4.8,
+  ),
+  CategoryMeta(
+    id: 'python_basics',
+    title: 'Python Basics',
+    description: 'Syntax, OOP, Modules, File Handling',
+    category: 'Python',
+    icon: Icons.code,
+    color: Colors.blueGrey,
+    questionCount: 40,
+    difficulty: 'Beginner',
+    popularity: 4.7,
+  ),
+  CategoryMeta(
+    id: 'django',
+    title: 'Django Framework',
+    description: 'ORM, Templates, REST API, Auth',
+    category: 'Python',
+    icon: Icons.code,
+    color: Color(0xFF1B5E20),
+    questionCount: 30,
+    difficulty: 'Intermediate',
+    popularity: 4.6,
+  ),
+  CategoryMeta(
+    id: 'hr_interview',
+    title: 'HR Interview Questions',
+    description: 'Strength, Weakness, Teamwork, Leadership',
+    category: 'Behavioral',
+    icon: Icons.people,
+    color: Colors.orange,
+    questionCount: 50,
+    difficulty: 'All Levels',
+    popularity: 4.9,
+  ),
+  CategoryMeta(
+    id: 'situational',
+    title: 'Situational Questions',
+    description: 'Conflict Resolution, Decision Making',
+    category: 'Behavioral',
+    icon: Icons.psychology,
+    color: Colors.deepOrange,
+    questionCount: 35,
+    difficulty: 'Intermediate',
+    popularity: 4.8,
+  ),
+  CategoryMeta(
+    id: 'system_design',
+    title: 'System Design Basics',
+    description: 'Load Balancing, Caching, DB Sharding',
+    category: 'System Design',
+    icon: Icons.architecture,
+    color: Colors.purple,
+    questionCount: 25,
+    difficulty: 'Advanced',
+    popularity: 4.9,
+  ),
+  CategoryMeta(
+    id: 'microservices',
+    title: 'Microservices',
+    description: 'API Gateway, Service Discovery, Docker',
+    category: 'System Design',
+    icon: Icons.cloud,
+    color: Colors.deepPurple,
+    questionCount: 20,
+    difficulty: 'Advanced',
+    popularity: 4.8,
+  ),
+  CategoryMeta(
+    id: 'sql_queries',
+    title: 'SQL Queries',
+    description: 'Joins, Subqueries, Indexes, Normalization',
+    category: 'SQL',
+    icon: Icons.storage,
+    color: Color(0xFF0D47A1),
+    questionCount: 35,
+    difficulty: 'Intermediate',
+    popularity: 4.7,
+  ),
+];
+
+const List<String> kCategoryFilters = [
+  'All',
+  'Flutter',
+  'Dart',
+  'Android',
+  'iOS',
+  'JavaScript',
+  'Python',
+  'Behavioral',
+  'System Design',
+  'SQL',
+];

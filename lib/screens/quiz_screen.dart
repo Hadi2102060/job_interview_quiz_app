@@ -169,13 +169,13 @@ class _QuizScreenState extends State<QuizScreen>
       _animationController.forward();
     } else {
       Get.toNamed(
-        Approutes.resultScreen,
+        AppRoutes.resultScreen,
         arguments: {
           'score': _score,
           'total': _questions.length,
           'onRestart': _resetQuiz,
           'onExit': () {
-            Get.offAllNamed(Approutes.homeRoute);
+            Get.offAllNamed(AppRoutes.homeRoute);
           },
         },
       );

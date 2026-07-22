@@ -128,7 +128,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                             shadows: [
                               Shadow(
                                 blurRadius: 10,
-                                color: Colors.black.withOpacity(0.3),
+                                color: Colors.black.withValues(alpha: 0.3),
                                 offset: const Offset(2, 2),
                               ),
                             ],
@@ -140,7 +140,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                           "You've completed the quiz!",
                           style: TextStyle(
                             fontSize: 18,
-                            color: Colors.white.withOpacity(0.9),
+                            color: Colors.white.withValues(alpha: 0.9),
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -159,18 +159,18 @@ class _SuccessScreenState extends State<SuccessScreen>
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Colors.white.withOpacity(0.2),
-                          Colors.white.withOpacity(0.1),
+                          Colors.white.withValues(alpha: 0.2),
+                          Colors.white.withValues(alpha: 0.1),
                         ],
                       ),
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withValues(alpha: 0.3),
                         width: 1,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withValues(alpha: 0.2),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
@@ -183,7 +183,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: Colors.white.withOpacity(0.8),
+                            color: Colors.white.withValues(alpha: 0.8),
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -201,7 +201,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                                 shadows: [
                                   Shadow(
                                     blurRadius: 15,
-                                    color: Colors.black.withOpacity(0.3),
+                                    color: Colors.black.withValues(alpha: 0.3),
                                     offset: const Offset(0, 3),
                                   ),
                                 ],
@@ -212,7 +212,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                               style: TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                               ),
                             ),
                           ],
@@ -224,10 +224,10 @@ class _SuccessScreenState extends State<SuccessScreen>
                             vertical: 8,
                           ),
                           decoration: BoxDecoration(
-                            color: _getScoreColor().withOpacity(0.2),
+                            color: _getScoreColor().withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                              color: _getScoreColor().withOpacity(0.5),
+                              color: _getScoreColor().withValues(alpha: 0.5),
                               width: 1,
                             ),
                           ),
@@ -246,7 +246,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                           borderRadius: BorderRadius.circular(10),
                           child: LinearProgressIndicator(
                             value: double.parse(score) / double.parse(total),
-                            backgroundColor: Colors.white.withOpacity(0.2),
+                            backgroundColor: Colors.white.withValues(alpha: 0.2),
                             valueColor: AlwaysStoppedAnimation<Color>(
                               _getScoreColor(),
                             ),
@@ -258,7 +258,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                           "${((double.parse(score) / double.parse(total)) * 100).toStringAsFixed(0)}%",
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.white.withOpacity(0.7),
+                            color: Colors.white.withValues(alpha: 0.7),
                           ),
                         ),
                       ],
@@ -282,7 +282,7 @@ class _SuccessScreenState extends State<SuccessScreen>
                             style: OutlinedButton.styleFrom(
                               foregroundColor: Colors.white,
                               side: BorderSide(
-                                color: Colors.white.withOpacity(0.5),
+                                color: Colors.white.withValues(alpha: 0.5),
                                 width: 1.5,
                               ),
                               padding: const EdgeInsets.symmetric(vertical: 14),
