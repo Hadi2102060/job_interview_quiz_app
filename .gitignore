@@ -20,3 +20,4 @@ secrets.json
 
 # Log files
 *.log
+/*.php
